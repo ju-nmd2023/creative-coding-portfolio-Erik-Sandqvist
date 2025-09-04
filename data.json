@@ -3,5 +3,16 @@
     "file": "experiments/example.js",
     "name": "Name of your experiment",
     "description": "Explains the what and the why. What is the main idea? What is the purpose? Describes the coding process and implementation choices and gives a high level system overview."
+  },
+  {
+    "file": "experiments/circkels1.js",
+    "name": "Circles Experiment 1",
+    "description": "This experiment explores the use of circles in a grid layout, utilizing random walks to create interesting patterns."
+  },
+  {
+    "file": "experiments/circkels2.js",
+    "name": "Circles Experiment 2",
+    "description": "This experiment builds upon the first by introducing new color schemes and more complex patterns."
   }
 ]
+
