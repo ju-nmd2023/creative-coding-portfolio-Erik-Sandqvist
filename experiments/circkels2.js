@@ -1,105 +1,49 @@
 let params = {
-    w: 600,    
-    h: 600,
-    margin: 60,  
-    bg: 'rgba(209, 143, 10, 1)',
-    ink: 'rgb(0, 0, 0)', 
-    cols: 12,
-    rows: 18,
-    freeRows: 3, 
-    seed: 1
-  };
-let currentSteps = 0;
-let maxSteps;
-  
-  function setup() {
-    createCanvas(params.w, params.h);
-    pixelDensity(2);
-    maxSteps = floor(map(params.rows - 1, 0, params.rows - 1, 20, 320));
-    currentSteps = 0;
-    background(params.bg);
+  w: 600,
+  h: 600,
+  r: 200,           
+  totalLines: 800,  // antal linjer som ritas totalt
+  speed: 4          // hur många linjer per frame
+};
+
+let angleStep;
+let currentLine = 0;
+
+function setup() {
+  createCanvas(params.w, params.h);
+  angleMode(RADIANS);
+  stroke(0);
+  noFill();
+
+ 
+  angleStep = TWO_PI / params.totalLines;
+}
+
+function draw() {
+
+  background('rgba(9, 97, 190, 1)');
+
+  // cirkel med kant
+  ellipse(width / 2, height / 2, params.r * 2);
+
+  translate(width / 2, height / 2);
+
+  // rita linjer hittills
+  for (let i = 0; i < currentLine; i++) {
+    let a = i * angleStep;
+    let x1 = cos(a) * params.r;
+    let y1 = sin(a) * params.r;
+    let x2 = cos(a + PI) * params.r;
+    let y2 = sin(a + PI) * params.r;
+
+    line(x1, y1, x2, y2);
   }
-  
-  function redrawAll() {
-    randomSeed(params.seed);
-    background(params.bg);
-    noStroke();
-    fill(params.bg);
-    rect(0, 0, width, height);
-    drawGridArt(currentSteps);
+
+  // uppdatera antal linjer per frame
+  currentLine += params.speed;
+
+  // stoppa när alla är ritade
+  if (currentLine > params.totalLines) {
+    noLoop();
   }
-  
-  function drawGridArt() {
-    const { margin, cols, rows } = params;
-    const gridW = width - margin * 2;
-    const gridH = height - margin * 2;
-    const cellW = gridW / cols;
-    const cellH = gridH / rows;
-    const r = Math.min(cellW, cellH) * 0.42;
-  
-    stroke(params.ink);
-    noFill();
-  
-    for (let gy = 0; gy < rows; gy++) {
-      for (let gx = 0; gx < cols; gx++) {
-        const cx = margin + gx * cellW + cellW / 2;
-        const cy = margin + gy * cellH + cellH / 2;
-  
-        const steps = floor(map(gy, 0, rows - 1, 20, 320));
-        const useClip = gy >= params.freeRows;
-  
-        if (useClip) {
-          beginClipCircle(cx, cy, r);
-        }
-  
-        push();
-        translate(cx, cy);
-    drawCell(steps, r, maxSteps);
-        pop();
-  
-        if (useClip) {
-          endClip();
-        }
-      }
-    }
-  }
-  
-  function drawCell(steps, r, maxStepsToDraw) {
-    strokeWeight(1);
-    const loops = 6;
-    let n = min(maxStepsToDraw, loops);
-    for (let i = 0; i < n; i++) randomWalk(steps, r);
-  }
-  
-  function randomWalk(steps, r) {
-    let x = random(-r, r), y = random(-r, r);
-    beginShape();
-    for (let i = 0; i < steps; i++) {
-      vertex(x, y);
-      const ang = random(TWO_PI);
-      const stepLen = r * 0.2 * random(0.2, 1);
-      x += cos(ang) * stepLen;
-      y += sin(ang) * stepLen;
-    }
-    endShape();
-  }
-  
-  function beginClipCircle(x, y, r) {
-    drawingContext.save();
-    drawingContext.beginPath();
-    drawingContext.arc(x, y, r, 0, Math.PI * 2);
-    drawingContext.clip();
-  }
-  
-  function endClip() {
-    drawingContext.restore();
-  }
-  function draw() {
-    randomSeed(params.seed);
-    background(params.bg);
-    drawGridArt(currentSteps);
-    currentSteps++;
-    if (currentSteps > 6) {
-      noLoop(); // Stop when all lines are drawn
-    }
 }
