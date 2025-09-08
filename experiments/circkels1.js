@@ -3,7 +3,7 @@ let params = {
     h: 600,
     margin: 60,  
     bg: 'rgba(9, 97, 190, 1)',
-    ink: 'rgb(0, 0, 0)', 
+    ink: 'rgba(255, 255, 255, 1)', 
     cols: 12,
     rows: 18,
     freeRows: 3, 

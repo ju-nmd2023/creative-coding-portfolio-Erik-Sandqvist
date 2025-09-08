@@ -1,10 +1,5 @@
 [
   {
-    "file": "experiments/example.js",
-    "name": "Name of your experiment",
-    "description": "Explains the what and the why. What is the main idea? What is the purpose? Describes the coding process and implementation choices and gives a high level system overview."
-  },
-  {
     "file": "experiments/circkels1.js",
     "name": "Circles Experiment 1",
     "description": "This experiment explores the use of circles in a grid layout, utilizing random walks to create interesting patterns."
@@ -28,6 +23,11 @@
   "file": "experiments/squares2.js",
     "name": "Squares Experiment",
     "description": "This experiment investigates the use of squares in a grid layout, exploring different sizes and colors to create visually appealing designs."
-  }   
+  },
+  {
+    "file": "experiments/squares3.js",
+    "name": "Squares Experiment",
+    "description": "This experiment investigates the use of squares in a grid layout, exploring different sizes and colors to create visually appealing designs."
+  }
 ]
 
