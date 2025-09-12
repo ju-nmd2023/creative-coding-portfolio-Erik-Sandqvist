@@ -11,7 +11,7 @@ let params = {
   };
   
   function setup() {
-    createCanvas(params.w, params.h);
+    createCanvas(windowWidth, windowHeight);
     pixelDensity(2);
     noLoop();
     redrawAll();

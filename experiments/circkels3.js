@@ -13,7 +13,7 @@ let currentLine = 0;
 let anglesGrid = []; 
 
 function setup() {
-  createCanvas(params.w, params.h);
+  createCanvas(windowWidth, windowHeight);
   angleMode(RADIANS);
   stroke(255);
   noFill();

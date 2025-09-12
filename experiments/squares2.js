@@ -33,10 +33,11 @@ function drawMolnar(v) {
   noFill();
   rect(width / 2, height / 2, width - 20, height - 20); // ram med liten marginal
 
+  // Rita suddiga linjer först
   drawingContext.save();
   drawingContext.filter = 'blur(2px)';
 
-  stroke(0);
+  stroke(0, 100); // Halvtransparent svart för suddiga linjer
   strokeWeight(1);
   noFill();
 
@@ -44,7 +45,6 @@ function drawMolnar(v) {
     for (let j = 0; j < rows; j++) {
       let x = i * cellW + cellW / 2;
       let y = j * cellH + cellH / 2;
-      // Basstorlek (tidigare 0.7) multipliceras för överlapp
       let w = cellW * 0.7 * overlapFactor;
       let h = cellH * 0.7 * overlapFactor;
 
@@ -54,21 +54,33 @@ function drawMolnar(v) {
       if (v === 1) {
         rotate(radians(random(-30, 30)));
         rect(0, 0, w, h);
-      } else if (v === 2) {
-        // Mer förskjutning så att de vandrar in i varandra
-        let dx = random(-cellW * 0.45, cellW * 0.45);
-        let dy = random(-cellH * 0.45, cellH * 0.45);
-        rect(dx, dy, w, h);
-      } else if (v === 3) {
-        let n = noise(i * 0.2, j * 0.2) * TWO_PI;
-        rotate(n);
+      }
+      pop();
+    }
+  }
+  drawingContext.restore(); // Återställ för att sluta använda blur
+
+  // Rita skarpa linjer ovanpå
+  stroke(0); // Svart för skarpa linjer
+  strokeWeight(1);
+
+  for (let i = 0; i < cols; i++) {
+    for (let j = 0; j < rows; j++) {
+      let x = i * cellW + cellW / 2;
+      let y = j * cellH + cellH / 2;
+      let w = cellW * 0.7 * overlapFactor;
+      let h = cellH * 0.7 * overlapFactor;
+
+      push();
+      translate(x, y);
+
+      if (v === 1) {
+        rotate(radians(random(-30, 30)));
         rect(0, 0, w, h);
       }
       pop();
     }
   }
-
-  drawingContext.restore();
 }
 
 // Tips: ändra overlapFactor live i konsolen och kör redraw():

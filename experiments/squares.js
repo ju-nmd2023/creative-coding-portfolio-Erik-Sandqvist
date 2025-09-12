@@ -3,7 +3,7 @@ let variation = 1;
 let seed = 1234;
 
 function setup() {
-  createCanvas(800, 800);
+  createCanvas(windowWidth, windowHeight);
   noLoop();
 }
 
@@ -22,8 +22,8 @@ function draw() {
 function drawMolnar(v) {
   let cols = 20;
   let rows = 20;
-  let cellW = width / cols;
-  let cellH = height / rows;
+  let cellW = 800 / cols;
+  let cellH = 800 / rows;
 
   stroke(0);
   noFill();

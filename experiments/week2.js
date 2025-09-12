@@ -28,7 +28,6 @@ function init() {
     }
   }
 
-  // Lätt textur
   push();
   blendMode(OVERLAY);
   for (let i=0;i<8000;i++){
@@ -52,7 +51,7 @@ function makeParticle(baseCol, layer) {
 }
 
 function draw() {
-  // Lätt dimslöja för motion blur
+  // my motion blur
   noStroke();
   fill(5, 7, 15, 5);
   rect(0,0,width,height);
@@ -72,7 +71,7 @@ function updateParticle(p) {
   ang += sin(p.age * 0.02) * 0.4;
   p.a = ang;
 
-  let speed = 0.6 + 0.6 * noise(p.x * scale * 0.5, p.y * scale * 0.5);
+  let speed = 0.6 + 0.6 * noise(p.x * scale * 0.5, p.y * scale * 8.5);
   p.x += cos(p.a) * speed;
   p.y += sin(p.a) * speed;
 
