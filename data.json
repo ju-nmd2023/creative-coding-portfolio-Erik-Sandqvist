@@ -28,6 +28,11 @@
     "file": "experiments/squares3.js",
     "name": "Squares Experiment",
     "description": "This experiment investigates the use of squares in a grid layout, exploring different sizes and colors to create visually appealing designs."
+  },
+  {
+    "file": "experiments/week2.js",
+    "name": "Week 2 Experiment",
+    "description": ""
   }
 ]
 

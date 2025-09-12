@@ -57,7 +57,7 @@ function draw() {
   fill(5, 7, 15, 5);
   rect(0,0,width,height);
 
-  let steps = 2500; // hur många partiklar uppdateras / frame
+  let steps = 25000; // hur många partiklar uppdateras / frame
   for (let n=0; n<steps; n++) {
     const p = random(particles);
     if (!p) continue;
