@@ -50,7 +50,7 @@ function draw() {
       push();
       translate(cx, cy);
 
-      ellipse(0, 0, params.r * 2);
+      
 
     
       let linesToDraw = min(currentLine, totalLines);

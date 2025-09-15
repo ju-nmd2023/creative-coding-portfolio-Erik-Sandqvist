@@ -6,13 +6,13 @@
   },
   {
     "file": "experiments/circkels2.js",
-    "name": "Circles Experiment 2",
+    "name": "Circles 2",
     "description": "This experiment builds upon the first by introducing new color schemes and more complex patterns."
   },
   {
     "file": "experiments/circkels3.js",
-    "name": "Circles Experiment 3",
-    "description": "The third experiment in the series, focusing on interactivity and user input to modify the circle patterns."
+    "name": "Circles 3",
+    "description": "The amount of lines increase with 5 lines for each circkle"
   },
   {
     "file": "experiments/squares.js",
@@ -26,13 +26,19 @@
   },
   {
     "file": "experiments/squares3.js",
-    "name": "Squares Experiment",
-    "description": "This experiment investigates the use of squares in a grid layout, exploring different sizes and colors to create visually appealing designs."
+    "name": "Squares that you can control (kind of)",
+    "description": "Try diffrent keys, 1,2,3,4,R"
   },
   {
     "file": "experiments/week2.js",
     "name": "Week 2 Experiment",
     "description": ""
+  },
+  {
+    "file": "experiments/week2pt2.js",
+    "name": "Week 2",
+    "description": ""
   }
+
 ]
 

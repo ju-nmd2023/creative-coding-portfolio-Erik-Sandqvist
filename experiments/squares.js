@@ -1,4 +1,3 @@
-let mode = "molnar"; // "molnar" or "riley"
 let variation = 1;
 let seed = 1234;
 
@@ -12,11 +11,7 @@ function draw() {
   noiseSeed(seed);
   background('rgba(200, 222, 10, 1)');
 
-  if (mode === "molnar") {
-    drawMolnar(variation);
-  } else if (mode === "riley") {
-    drawRiley(variation);
-  }
+  drawMolnar(variation);
 }
 
 function drawMolnar(v) {
@@ -25,13 +20,17 @@ function drawMolnar(v) {
   let cellW = 800 / cols;
   let cellH = 800 / rows;
 
+  // Centrera den stora kvadraten
+  let offsetX = (width - 800) / 2;
+  let offsetY = (height - 800) / 2;
+
   stroke(0);
   noFill();
 
   for (let i = 0; i < cols; i++) {
     for (let j = 0; j < rows; j++) {
-      let x = i * cellW + cellW / 2;
-      let y = j * cellH + cellH / 2;
+      let x = i * cellW + cellW / 2 + offsetX;
+      let y = j * cellH + cellH / 2 + offsetY;
 
       push();
       translate(x, y);

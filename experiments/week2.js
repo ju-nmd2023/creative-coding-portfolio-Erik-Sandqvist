@@ -1,4 +1,4 @@
-// Abstrakt generativ konst – tryck R för ny komposition
+// This code was inspierd by results of chatgpt and was modified by me
 let particles = [];
 let paletteSets = [
   ["#0E0F19","#F34213","#FF8C42","#FFDD57","#0FA3B1"],
@@ -37,6 +37,7 @@ function init() {
   pop();
 }
 
+//This function is generated with help of chatgpt
 function makeParticle(baseCol, layer) {
   return {
     x: random(width),
@@ -51,12 +52,11 @@ function makeParticle(baseCol, layer) {
 }
 
 function draw() {
-  // my motion blur
   noStroke();
   fill(5, 7, 15, 5);
   rect(0,0,width,height);
 
-  let steps = 25000; // hur många partiklar uppdateras / frame
+  let steps = 25000; 
   for (let n=0; n<steps; n++) {
     const p = random(particles);
     if (!p) continue;
@@ -64,8 +64,8 @@ function draw() {
   }
 }
 
+//This function is generated with help of chatgpt
 function updateParticle(p) {
-  // Flow field via simplex/noise
   let scale = 0.0016;
   let ang = noise(p.x * scale, p.y * scale, p.age * 0.002) * TAU * 2.0;
   ang += sin(p.age * 0.02) * 0.4;
@@ -75,13 +75,11 @@ function updateParticle(p) {
   p.x += cos(p.a) * speed;
   p.y += sin(p.a) * speed;
 
-  // Wrap
   if (p.x < 0) p.x += width;
   if (p.x > width) p.x -= width;
   if (p.y < 0) p.y += height;
   if (p.y > height) p.y -= height;
 
-  // Ritning
   strokeWeight(p.w);
   const alpha = map(sin(p.age * 0.01), -1, 1, 10, 120) * (1 - p.age / p.life);
   const c = p.col;
@@ -90,7 +88,6 @@ function updateParticle(p) {
 
   p.age++;
   if (p.age > p.life) {
-    // återföd
     Object.assign(p, makeParticle(p.col, 0));
   }
 }

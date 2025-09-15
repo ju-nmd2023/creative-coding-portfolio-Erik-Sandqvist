@@ -1,7 +1,7 @@
 let params = {
-  w: 600,
-  h: 600,
-  r: 200,           
+  w: 900,
+  h: 900,
+  r: 400,           
   totalLines: 500, 
   speed: 1          
 };
@@ -22,8 +22,6 @@ function setup() {
 
 function draw() {
   background('rgba(9, 97, 190, 1)');
-
-  ellipse(width / 2, height / 2, params.r * 2);
 
   translate(width / 2, height / 2);
 

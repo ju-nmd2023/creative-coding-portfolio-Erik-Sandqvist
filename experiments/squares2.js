@@ -1,19 +1,35 @@
 let mode = "molnar"; // "molnar" or "riley"
 let variation = 1;
 let seed = 1234;
-// Faktor > 1 gör att kvadrater överlappar grannceller
-let overlapFactor = 1.35; 
+let overlapFactor = 1.35;
+
+let palette;
 
 function setup() {
   createCanvas(800, 800);
   noLoop();
   rectMode(CENTER);
+
+  // Enkel färgpalett (halvtransparent)
+  palette = [
+    color(30, 30, 30, 180),    // nästan svart
+    color(200, 50, 50, 120),   // rödton
+    color(50, 100, 200, 100),  // blåton
+    color(250, 200, 80, 150),  // gulorange
+    color(20, 180, 120, 100)   // grön
+  ];
 }
 
 function draw() {
   randomSeed(seed);
   noiseSeed(seed);
-  background(255);
+  background(250);
+
+  // Liten textur i bakgrunden
+  for (let i = 0; i < 600; i++) {
+    stroke(0, 10);
+    line(random(width), random(height), random(width), random(height));
+  }
 
   if (mode === "molnar") {
     drawMolnar(variation);
@@ -29,18 +45,14 @@ function drawMolnar(v) {
   let cellH = height / rows;
 
   stroke(0);
-  strokeWeight(4);
+  strokeWeight(3);
   noFill();
-  rect(width / 2, height / 2, width - 20, height - 20); // ram med liten marginal
+  rect(width / 2, height / 2, width - 20, height - 20); // ram
 
-  // Rita suddiga linjer först
+  // Suddat lager
   drawingContext.save();
   drawingContext.filter = 'blur(2px)';
 
-  stroke(0, 100); // Halvtransparent svart för suddiga linjer
-  strokeWeight(1);
-  noFill();
-
   for (let i = 0; i < cols; i++) {
     for (let j = 0; j < rows; j++) {
       let x = i * cellW + cellW / 2;
@@ -51,19 +63,26 @@ function drawMolnar(v) {
       push();
       translate(x, y);
 
-      if (v === 1) {
-        rotate(radians(random(-30, 30)));
-        rect(0, 0, w, h);
-      }
+      // Slumpmässigt val av transformation
+      let choice = floor(random(3));
+      if (choice === 0) rotate(radians(random(-40, 40)));
+      if (choice === 1) translate(random(-cellW/3, cellW/3), random(-cellH/3, cellH/3));
+      if (choice === 2) scale(random(0.7, 1.4));
+
+      stroke(random(palette));
+
+      // Slumpad form
+      let shapeType = random();
+      if (shapeType < 0.5) rect(0, 0, w, h);
+      else if (shapeType < 0.8) ellipse(0, 0, w, h);
+      else line(-w/2, -h/2, w/2, h/2);
+
       pop();
     }
   }
-  drawingContext.restore(); // Återställ för att sluta använda blur
+  drawingContext.restore();
 
-  // Rita skarpa linjer ovanpå
-  stroke(0); // Svart för skarpa linjer
-  strokeWeight(1);
-
+  // Skarpa linjer ovanpå
   for (let i = 0; i < cols; i++) {
     for (let j = 0; j < rows; j++) {
       let x = i * cellW + cellW / 2;
@@ -74,33 +93,56 @@ function drawMolnar(v) {
       push();
       translate(x, y);
 
-      if (v === 1) {
-        rotate(radians(random(-30, 30)));
-        rect(0, 0, w, h);
-      }
+      let choice = floor(random(3));
+      if (choice === 0) rotate(radians(random(-40, 40)));
+      if (choice === 1) translate(random(-cellW/3, cellW/3), random(-cellH/3, cellH/3));
+      if (choice === 2) scale(random(0.7, 1.4));
+
+      stroke(random(palette));
+      strokeWeight(1);
+
+      let shapeType = random();
+      if (shapeType < 0.5) rect(0, 0, w, h);
+      else if (shapeType < 0.8) ellipse(0, 0, w, h);
+      else line(-w/2, -h/2, w/2, h/2);
+
       pop();
     }
   }
 }
 
-// Tips: ändra overlapFactor live i konsolen och kör redraw():
-// overlapFactor = 1.8; redraw();
-// Sätt tillbaka till 1 för ingen överlapp.
 function drawRiley(v) {
-  // Placeholder så att mode "riley" inte kraschar om du byter.
-  // Lägg egen implementation här senare.
   push();
   noFill();
-  stroke(0);
-  strokeWeight(2);
-  let s = 60;
-  for (let y = s; y < height - s; y += s) {
+  let freq = 0.02;
+  let amp = 30;
+
+  for (let y = 40; y < height - 40; y += 20) {
     beginShape();
-    for (let x = s; x < width - s; x += s) {
-      let off = sin((x + y) * 0.05) * 12;
+    stroke(random(palette));
+    strokeWeight(2);
+    for (let x = 40; x < width - 40; x += 10) {
+      let off = 0;
+      if (v === 1) {
+        off = sin(x * freq + y * 0.05) * amp;
+      } else if (v === 2) {
+        off = noise(x * 0.01, y * 0.01) * 60 - 30;
+      } else if (v === 3) {
+        off = sin(x * 0.05) * cos(y * 0.03) * amp;
+      }
       vertex(x, y + off);
     }
     endShape();
   }
   pop();
+}
+
+// Enkel interaktivitet
+function keyPressed() {
+  if (key === '1') variation = 1;
+  if (key === '2') variation = 2;
+  if (key === '3') variation = 3;
+  if (key === 'm') mode = "molnar";
+  if (key === 'r') mode = "riley";
+  redraw();
 }
