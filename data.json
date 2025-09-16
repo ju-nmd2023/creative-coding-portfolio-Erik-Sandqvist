@@ -1,17 +1,17 @@
 [
   {
     "file": "experiments/circkels1.js",
-    "name": "Circles Experiment 1",
-    "description": "This experiment explores the use of circles in a grid layout, utilizing random walks to create interesting patterns."
+    "name": "Circles Experiment based on George Nees",
+    "description": "This artwork is inspierd by Georg Nees, one of the pioneers of computer art. The experiment explores the use of circles and grid."
   },
   {
     "file": "experiments/circkels2.js",
-    "name": "Circles 2",
-    "description": "This experiment builds upon the first by introducing new color schemes and more complex patterns."
+    "name": "Circles V2",
+    "description": "This experiment builds upon the first by introducing a new kind of circle"
   },
   {
     "file": "experiments/circkels3.js",
-    "name": "Circles 3",
+    "name": "Circles V3",
     "description": "The amount of lines increase with 5 lines for each circkle"
   },
   {
@@ -38,7 +38,20 @@
     "file": "experiments/week2pt2.js",
     "name": "Week 2",
     "description": ""
+  },
+  {
+    "file": "experiments/flowfield.js",
+    "name": "Flowfield",
+    "description": "This concept is based on: Daniel Shiffman, The Nature of Code"
+  },
+  {"file": "experiments/flowfield-V2.js",
+    "name": "Flowfield V2",
+    "description": "This concept is based on: Daniel Shiffman, The Nature of Code"
+  },
+  {
+    "file": "experiments/flowfield-V3.js",
+    "name": "Flowfield V3",
+    "description": "This concept is based on: Daniel Shiffman, The Nature of Code"
   }
-
 ]
 
