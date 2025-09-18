@@ -10,7 +10,7 @@ function setup() {
 function draw() {
   randomSeed(seed);
   noiseSeed(seed);
-  background(255);
+  background('rgba(235, 209, 12, 1)');
 
   if (mode === "molnar") {
     drawMolnar(variation);
@@ -26,7 +26,7 @@ function drawMolnar(v) {
   let cellH = height / rows;
 
   stroke(0);
-  noFill();
+  // fill(27, 18, 201);
 
   for (let i = 0; i < cols; i++) {
     for (let j = 0; j < rows; j++) {

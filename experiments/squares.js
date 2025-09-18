@@ -9,20 +9,20 @@ function setup() {
 function draw() {
   randomSeed(seed);
   noiseSeed(seed);
-  background('rgba(200, 222, 10, 1)');
+  background('rgba(235, 209, 12, 1)');
 
   drawMolnar(variation);
 }
 
 function drawMolnar(v) {
-  let cols = 20;
-  let rows = 20;
-  let cellW = 800 / cols;
-  let cellH = 800 / rows;
+  let cols = 30;
+  let rows = 30;
+  let cellW = 1000 / cols;
+  let cellH = 1000 / rows;
 
   // Centrera den stora kvadraten
-  let offsetX = (width - 800) / 2;
-  let offsetY = (height - 800) / 2;
+  let offsetX = (width - 1000) / 2;
+  let offsetY = (height -800) / 2;
 
   stroke(0);
   noFill();
