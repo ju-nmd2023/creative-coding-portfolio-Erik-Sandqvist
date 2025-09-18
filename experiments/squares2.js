@@ -1,12 +1,12 @@
-let mode = "molnar"; // "molnar" or "riley"
+let mode = "molnar"; 
 let variation = 1;
 let seed = 1234;
-let overlapFactor = 1.35;
+let overlapFactor = 1;
 
 let palette;
 
 function setup() {
-  createCanvas(800, 800);
+  createCanvas(900, 900);
   noLoop();
   rectMode(CENTER);
 
@@ -25,11 +25,11 @@ function draw() {
   noiseSeed(seed);
   background(250);
 
-  // Liten textur i bakgrunden
-  for (let i = 0; i < 600; i++) {
-    stroke(0, 10);
-    line(random(width), random(height), random(width), random(height));
-  }
+  // // Liten textur i bakgrunden
+  // for (let i = 0; i < 600; i++) {
+  //   stroke(0, 10);
+  //   line(random(width), random(height), random(width), random(height));
+  // }
 
   if (mode === "molnar") {
     drawMolnar(variation);
@@ -39,8 +39,8 @@ function draw() {
 }
 
 function drawMolnar(v) {
-  let cols = 20;
-  let rows = 20;
+  let cols = 30;
+  let rows = 30;
   let cellW = width / cols;
   let cellH = height / rows;
 

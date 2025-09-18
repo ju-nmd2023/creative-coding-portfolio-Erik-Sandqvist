@@ -34,8 +34,7 @@ function drawGridArt() {
   const cellH = gridH / rows;
   const r = Math.min(cellW, cellH) * 0.42;
 
-  // Beräkna offset för att centrera griden endast horisontellt
-  const offsetX = (width - gridW) / 2;
+  const offsetX = (windowWidth - 800) / 2;
 
   stroke(params.ink);
   noFill();
