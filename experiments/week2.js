@@ -3,8 +3,8 @@ let particles = [];
 let paletteSets = [
   ["#0E0F19","#F34213","#FF8C42","#FFDD57","#0FA3B1"],
   ["#120309","#E01A4F","#F15946","#F9C22E","#53B3CB"],
-  ["#0B1D26","#1B4353","#F2545B","#F5DFBB","#C5D86D"],
-  ["#0D0C1D","#FF6F59","#254441","#43AA8B","#B2B09B"]
+  ["#0B1D26","#1B4353","#F2545B","#F5DFBB","#a8be42ff"],
+  ["#0D0C1D","#595cffff","#254441","#43AA8B","#B2B09B"]
 ];
 
 function setup() {
