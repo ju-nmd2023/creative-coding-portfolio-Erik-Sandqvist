@@ -52,6 +52,16 @@
     "file": "experiments/flowfield-V3.js",
     "name": "Flowfield V3",
     "description": "This concept is based on: Daniel Shiffman, The Nature of Code"
+  },
+  {
+    "file": "experiments/piano.js",
+    "name": "Piano",
+    "description": "Press keys A, S, D, F, G, H, J to play notes"
+  },
+  {
+    "file": "experiments/synth.js",
+    "name": "Synth",
+    "description": ""
   }
 ]
 
