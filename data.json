@@ -67,6 +67,11 @@
     "file": "experiments/synth-V2.js",
     "name": "Synth V2",
     "description": ""
+  },
+  {
+    "file": "experiments/finalprojectplay.js",
+    "name": "test",
+    "description": ""
   }
 ]
 
