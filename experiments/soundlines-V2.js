@@ -1,13 +1,13 @@
-// https://chatgpt.com/share/68d43716-11ac-800b-a75f-7233f46ee7e6 
+//This code is based of the previous soundlines.js but I myself added nosie to the lines to make them go wiggiley
 
 let x1, y1, x2, y2; 
 let progress = 0;
 let speed = 1;
 let paletteSets = [
   ["#06128f","#F34213","#deb514","#0FA3B1"],
-  ["#7d0736","#E01A4F","#b51b07","#F9C22E","#53B3CB"],
-  ["#0B1D26","#1B4353","#F2545B","#F5DFBB","#a8be42ff"],
-  ["#0D0C1D","#595cffff","#254441","#43AA8B","#B2B09B"]
+  ["#E01A4F","#b51b07"],
+  ["#0B1D26","#1B4353","#F2545B","#f89900ff"],
+  ["#0D0C1D","#595cffff","#254441","#43AA8B","#1b33ebff"]
 ];
 let currentColor;
 
@@ -57,29 +57,41 @@ function newLine() {
 function draw() {
   if (!playing) return;
 
-  progress += speed;
+  // Gör flera steg per frame beroende på hastighet
+  let steps = int(speed * 3); // fler steg ju snabbare hastighet
+  for (let s = 0; s < steps; s++) {
+    progress += 0.5; // mindre stegstorlek för tätare punkter
 
-  let x = lerp(x1, x2, progress / 100);
-  let y = lerp(y1, y2, progress / 100);
+    // Grundposition längs en rak linje
+    let t = progress / 100;
+    let x = lerp(x1, x2, t);
+    let y = lerp(y1, y2, t);
 
-  stroke(currentColor);
-  strokeWeight(2);
-  line(x1, y1, x, y);
+    let noiseScale = 0.01;
+    let offsetX = map(noise(t * 5, frameCount * noiseScale), 0, 1, -50, 50);
+    let offsetY = map(noise(t * 5 + 100, frameCount * noiseScale), 0, 1, -50, 50);
 
-  if (frameCount % 20 === 0) { 
-    speed += random(-1.5, 1.5);
-    speed = constrain(speed, 0.5, 10);
+    stroke(currentColor);
+    strokeWeight(2);
+    point(x + offsetX, y + offsetY);
 
-    let freq = map(speed, 0.5, 10, 100, 1500);
+    if (progress >= 100) {
+      synth.triggerRelease();
+      playing = false;
+      newLine();
+      break; 
+    }
+  }
+
+  if (frameCount % 25 === 0) { 
+    speed += random(-2, 2);
+    speed = constrain(speed, 0.5, 12);
+
+    let freq = map(speed, 0.5, 12, 100, 2000);
     synth.frequency.linearRampTo(freq, 0.1); 
   }
-
-  if (progress >= 100) {
-    synth.triggerRelease();
-    playing = false;
-    newLine();
-  }
 }
+
 
 function keyPressed() {
   if (key === 'r' || key === 'R') {

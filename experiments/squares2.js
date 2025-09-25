@@ -6,7 +6,7 @@ let overlapFactor = 1;
 let palette;
 
 function setup() {
-  createCanvas(900, 900);
+  createCanvas(600, 600);
   noLoop();
   rectMode(CENTER);
 
