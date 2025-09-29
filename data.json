@@ -1,43 +1,43 @@
 [
   {
     "file": "experiments/circkels1.js",
-    "name": "Circles Experiment based on George Nees",
+    "name": "Circles Experiment based on George Nees creation",
     "description": "This artwork is inspierd by Georg Nees, one of the pioneers of computer art. The experiment explores the use of circles and grid."
   },
   {
     "file": "experiments/circkels2.js",
     "name": "Circles V2",
-    "description": "This experiment builds upon the first by introducing a new kind of circle"
+    "description": "This experiment builds upon the first by introducing a new kind of circle that draws a line after the previous is drawn."
   },
   {
     "file": "experiments/circkels3.js",
     "name": "Circles V3",
-    "description": "The amount of lines increase with 5 lines for each circkle"
+    "description": "The amount of lines increase with 5 lines for each circle"
   },
   {
     "file": "experiments/squares.js",
     "name": "Squares Experiment",
-    "description": "This experiment investigates the use of squares in a grid layout, exploring different sizes and colors to create visually appealing designs."
+    "description": "This experiment investigates the use of squares in a grid layout, the placement of squares is random."
   },
   {
-  "file": "experiments/squares2.js",
-    "name": "Squares Experiment",
-    "description": "This experiment investigates the use of squares in a grid layout, exploring different sizes and colors to create visually appealing designs."
+  "file": "experiments/squares-V2.js",
+    "name": "Squares-V2",
+    "description": "This experiment has more that just squares, it is all randomized and creates unique patterns each time. Try the Keys M and R"
   },
   {
-    "file": "experiments/squares3.js",
+    "file": "experiments/squares-V3.js",
     "name": "Squares that you can control (kind of)",
-    "description": "Try diffrent keys, 1,2,3,4,R"
+    "description": "Try different keys, 1,2,3,4,5,6,R"
   },
   {
     "file": "experiments/week2.js",
-    "name": "Week 2 Experiment",
-    "description": ""
+    "name": "Particle System",
+    "description": "A cool particle system and you can press R to reset and randomize the colors"
   },
   {
     "file": "experiments/week2pt2.js",
-    "name": "Week 2",
-    "description": ""
+    "name": "Particle System V2",
+    "description": "A cool particle system with new features and improvements. Try dragging the mouse around."
   },
   {
     "file": "experiments/flowfield.js",
@@ -54,24 +54,29 @@
     "description": "This concept is based on: Daniel Shiffman, The Nature of Code"
   },
   {
+    "file": "experiments/test.js",
+    "name": "Perlin Noise Terrain",
+    "description": "This code is based on The Coding Train's video about Perlin Noise Terrain."
+  },
+  {
     "file": "experiments/synth.js",
     "name": "Synth",
-    "description": ""
+    "description": "Press one time and drag the mouse around on the canvas to create sound."
   },
   {
     "file": "experiments/synth-V2.js",
     "name": "Synth V2",
-    "description": ""
+    "description": "Press one time and drag the mouse around on the canvas to create sound."
   },
   {
     "file": "experiments/soundlines.js",
-    "name": "test",
-    "description": ""
+    "name": "Soundlines",
+    "description": "A visual and auditory experiment with sound and lines."
   },
   {
     "file": "experiments/soundlines-V2.js",
     "name": "Soundlines V2",
-    "description": ""
+    "description": "A visual and auditory experiment with sound and lines."
   }    
 ]
 

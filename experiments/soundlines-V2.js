@@ -57,12 +57,10 @@ function newLine() {
 function draw() {
   if (!playing) return;
 
-  // Gör flera steg per frame beroende på hastighet
-  let steps = int(speed * 3); // fler steg ju snabbare hastighet
+  let steps = int(speed * 3); 
   for (let s = 0; s < steps; s++) {
-    progress += 0.5; // mindre stegstorlek för tätare punkter
+    progress += 0.5;
 
-    // Grundposition längs en rak linje
     let t = progress / 100;
     let x = lerp(x1, x2, t);
     let y = lerp(y1, y2, t);

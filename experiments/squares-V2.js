@@ -6,30 +6,24 @@ let overlapFactor = 1;
 let palette;
 
 function setup() {
-  createCanvas(600, 600);
+  createCanvas(800, 800);
   noLoop();
   rectMode(CENTER);
 
-  // Enkel färgpalett (halvtransparent)
   palette = [
-    color(30, 30, 30, 180),    // nästan svart
-    color(200, 50, 50, 120),   // rödton
-    color(50, 100, 200, 100),  // blåton
-    color(250, 200, 80, 150),  // gulorange
-    color(20, 180, 120, 100)   // grön
+    color(30, 30, 30, 180),   
+    color(200, 50, 50, 120),
+    color(50, 100, 200, 100),
+    color(250, 200, 80, 150),
+    color(20, 180, 120, 100)
   ];
 }
 
 function draw() {
   randomSeed(seed);
   noiseSeed(seed);
-  background(250);
+  background('rgb(31, 135, 135)');
 
-  // // Liten textur i bakgrunden
-  // for (let i = 0; i < 600; i++) {
-  //   stroke(0, 10);
-  //   line(random(width), random(height), random(width), random(height));
-  // }
 
   if (mode === "molnar") {
     drawMolnar(variation);
@@ -44,12 +38,10 @@ function drawMolnar(v) {
   let cellW = width / cols;
   let cellH = height / rows;
 
-  stroke(0);
-  strokeWeight(3);
+  noStroke();
   noFill();
-  rect(width / 2, height / 2, width - 20, height - 20); // ram
 
-  // Suddat lager
+
   drawingContext.save();
   drawingContext.filter = 'blur(2px)';
 
@@ -63,7 +55,6 @@ function drawMolnar(v) {
       push();
       translate(x, y);
 
-      // Slumpmässigt val av transformation
       let choice = floor(random(3));
       if (choice === 0) rotate(radians(random(-40, 40)));
       if (choice === 1) translate(random(-cellW/3, cellW/3), random(-cellH/3, cellH/3));
@@ -71,7 +62,6 @@ function drawMolnar(v) {
 
       stroke(random(palette));
 
-      // Slumpad form
       let shapeType = random();
       if (shapeType < 0.5) rect(0, 0, w, h);
       else if (shapeType < 0.8) ellipse(0, 0, w, h);
@@ -82,7 +72,6 @@ function drawMolnar(v) {
   }
   drawingContext.restore();
 
-  // Skarpa linjer ovanpå
   for (let i = 0; i < cols; i++) {
     for (let j = 0; j < rows; j++) {
       let x = i * cellW + cellW / 2;
@@ -137,7 +126,6 @@ function drawRiley(v) {
   pop();
 }
 
-// Enkel interaktivitet
 function keyPressed() {
   if (key === '1') variation = 1;
   if (key === '2') variation = 2;

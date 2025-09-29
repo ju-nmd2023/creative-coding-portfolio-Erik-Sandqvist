@@ -9,7 +9,7 @@ function setup() {
 function draw() {
   randomSeed(seed);
   noiseSeed(seed);
-  background('rgba(235, 209, 12, 1)');
+  background('rgb(31, 135, 135)');
 
   drawMolnar(variation);
 }
