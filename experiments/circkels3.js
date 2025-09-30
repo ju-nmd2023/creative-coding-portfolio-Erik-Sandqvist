@@ -1,3 +1,5 @@
+//This artwork is a continuation of the previous one and all done by me after looking around on the p5 site and documentation
+
 let params = {
   w: 600,
   h: 600,

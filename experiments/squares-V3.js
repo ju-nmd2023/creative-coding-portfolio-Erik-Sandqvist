@@ -3,7 +3,7 @@ let variation = 1;
 let seed = 1234;
 
 function setup() {
-  createCanvas(800, 800);
+  createCanvas(windowWidth, windowHeight);
   noLoop();
 }
 
@@ -21,13 +21,15 @@ function draw() {
 }
 
 function drawMolnar(v) {
-  let cols = 20;
-  let rows = 20;
-  let cellW = width / cols;
-  let cellH = height / rows;
+  let cols = 30;
+  let rows = 30;
+  let cellW = 1000 / cols;
+  let cellH = 1000 / rows;
 
   stroke(0);
-
+  push();
+  // Centrera rutnätet i canvasen
+  translate((width-1000)/2, (height-1000)/2);
   for (let i = 0; i < cols; i++) {
     for (let j = 0; j < rows; j++) {
       let x = i * cellW + cellW / 2;
@@ -54,6 +56,7 @@ function drawMolnar(v) {
       pop();
     }
   }
+  pop();
 }
 
 function drawRiley(v) {
@@ -89,5 +92,5 @@ function keyPressed() {
   if (key === "4") { mode = "riley"; variation = 1; redraw(); }
   if (key === "5") { mode = "riley"; variation = 2; redraw(); }
   if (key === "6") { mode = "riley"; variation = 3; redraw(); }
-  if (key === "r") { seed = int(random(999999)); redraw(); } // re-roll seed
+  if (key === "r") { seed = int(random(999999)); redraw(); } 
 }

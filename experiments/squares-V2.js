@@ -6,7 +6,7 @@ let overlapFactor = 1;
 let palette;
 
 function setup() {
-  createCanvas(800, 800);
+  createCanvas(windowWidth, windowHeight);
   noLoop();
   rectMode(CENTER);
 
@@ -33,15 +33,15 @@ function draw() {
 }
 
 function drawMolnar(v) {
-  let cols = 30;
-  let rows = 30;
-  let cellW = width / cols;
-  let cellH = height / rows;
+  let cols = 20;
+  let rows = 20;
+  let cellW = 900 / cols;
+  let cellH = 900 / rows;
 
   noStroke();
   noFill();
 
-
+  translate((width-900)/2, (height-900)/2);
   drawingContext.save();
   drawingContext.filter = 'blur(2px)';
 
@@ -82,6 +82,7 @@ function drawMolnar(v) {
       push();
       translate(x, y);
 
+      //Her I let copilot decide more on the placement of the shapes and i reviewed the code
       let choice = floor(random(3));
       if (choice === 0) rotate(radians(random(-40, 40)));
       if (choice === 1) translate(random(-cellW/3, cellW/3), random(-cellH/3, cellH/3));

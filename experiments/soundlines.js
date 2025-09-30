@@ -1,3 +1,4 @@
+// I asked chatgpt to help me with this code then i studied it and modified it to fit my vision
 // https://chatgpt.com/share/68d43716-11ac-800b-a75f-7233f46ee7e6 
 
 let x1, y1, x2, y2; 

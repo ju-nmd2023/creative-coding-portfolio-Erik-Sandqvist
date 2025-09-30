@@ -1,5 +1,6 @@
 // Daniel Shiffman, The Nature of Code (Chapter 6: Autonomous Agents)
 // The Coding Train: https://thecodingtrain.com/challenges/24-perlin-noise-flow-field
+//Here I modified the speed and wich color the particles have depending on their position
 
 let inc = 0.1;
 let scl = 20;
@@ -51,6 +52,7 @@ class Particle {
     this.pos = createVector(random(width), random(height));
     this.vel = createVector(0, 0);
     this.acc = createVector(0, 0);
+    //(I) increased maxspeed
     this.maxspeed = 10;
     this.prevPos = this.pos.copy();
   }
@@ -74,6 +76,7 @@ class Particle {
     this.acc.mult(0);
   }
 
+  //In this function (I) changed the code to make the particles colorful based on their positons
   show() {
     stroke(map(this.pos.x, 0, width, 0, 255), 
            map(this.pos.y, 0, height, 0, 255), 
@@ -83,7 +86,6 @@ class Particle {
     this.updatePrev();
   }
   
-
   updatePrev() {
     this.prevPos.x = this.pos.x;
     this.prevPos.y = this.pos.y;

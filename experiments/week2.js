@@ -1,4 +1,5 @@
-// This code was inspierd by results of chatgpt and was modified by me
+// This code was inspierd by documantation on particals in p5 (https://archive.p5js.org/examples/simulate-particles.html) 
+// I also asked co-pilot to generate the color palete
 let particles = [];
 let paletteSets = [
   ["#0E0F19","#F34213","#FF8C42","#FFDD57","#0FA3B1"],
@@ -37,7 +38,7 @@ function init() {
   pop();
 }
 
-//This function is generated with help of chatgpt
+//This function is generated with help of github copilot
 function makeParticle(baseCol, layer) {
   return {
     x: random(width),
@@ -64,7 +65,7 @@ function draw() {
   }
 }
 
-//This function is generated with help of chatgpt
+//This function is generated with help of github copilot I modifeied it to fit my vision
 function updateParticle(p) {
   let scale = 0.0016;
   let ang = noise(p.x * scale, p.y * scale, p.age * 0.002) * TAU * 2.0;

@@ -80,6 +80,7 @@ class Particle {
     stroke(map(this.pos.x, 0, width, 0, 255), 
            map(this.pos.y, 0, height, 0, 255), 
            200, 25);
+            // NEW: Random stroke weight between 1 and 4 for more variety in particle trails
            strokeWeight(random(1, 4));
     line(this.pos.x, this.pos.y, this.prevPos.x, this.prevPos.y);
     this.updatePrev();
