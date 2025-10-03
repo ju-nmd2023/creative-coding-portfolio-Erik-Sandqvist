@@ -1,3 +1,5 @@
+//This is simular to the first squares artwork but here I implemented controls to switch between two different styles
+
 let mode = "molnar"; 
 let variation = 1;
 let seed = 1234;
@@ -28,7 +30,6 @@ function drawMolnar(v) {
 
   stroke(0);
   push();
-  // Centrera rutnätet i canvasen
   translate((width-1000)/2, (height-1000)/2);
   for (let i = 0; i < cols; i++) {
     for (let j = 0; j < rows; j++) {

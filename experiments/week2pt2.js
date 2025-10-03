@@ -1,4 +1,5 @@
-// https://chatgpt.com/share/68c8211b-7a0c-800b-b976-d514ba1c1f9a
+// Here I asked chatgpt to help me with the interaction of the mouse
+//https://chatgpt.com/share/68c8211b-7a0c-800b-b976-d514ba1c1f9a
 
 let particles = [];
 let paletteSets = [
@@ -116,7 +117,6 @@ function updateParticle(p, idx) {
   if (p.y < 0) p.y += height;
   if (p.y > height) p.y -= height;
 
-  // Rita — punkt med lite jitter
   strokeWeight(p.w);
   const alpha = map(sin(p.age * 0.02), -1, 1, 18, 160) * (1 - p.age / p.life);
   const c = p.col;

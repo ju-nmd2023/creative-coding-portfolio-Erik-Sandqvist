@@ -20,7 +20,6 @@ function drawMolnar(v) {
   let cellW = 1000 / cols;
   let cellH = 1000 / rows;
 
-  // Centrera den stora kvadraten
   let offsetX = (width - 1000) / 2;
   let offsetY = (height -800) / 2;
 
@@ -35,6 +34,8 @@ function drawMolnar(v) {
       push();
       translate(x, y);
 
+      //Here I had some help from github copilot to come up with the placement and variations
+      //I studied and learned from the code it suggested and then modified it to fit my needs
       if (v === 1) {
         // Random rotation
         rotate(radians(random(-30, 30)));

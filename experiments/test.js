@@ -1,4 +1,4 @@
-// I do not want to take credit for this because I mostly coded along to Daniel Shiffman
+// I do not want to take much credit for this because I mostly coded along to Daniel Shiffman
 // and juste changed a few thing but i thought it was cool.
 // https://youtu.be/IKB1hWWedMk
 

@@ -55,6 +55,7 @@ function drawMolnar(v) {
       push();
       translate(x, y);
 
+      //Her I let copilot decide more on the placement of the shapes and i reviewed the code
       let choice = floor(random(3));
       if (choice === 0) rotate(radians(random(-40, 40)));
       if (choice === 1) translate(random(-cellW/3, cellW/3), random(-cellH/3, cellH/3));
@@ -82,7 +83,6 @@ function drawMolnar(v) {
       push();
       translate(x, y);
 
-      //Her I let copilot decide more on the placement of the shapes and i reviewed the code
       let choice = floor(random(3));
       if (choice === 0) rotate(radians(random(-40, 40)));
       if (choice === 1) translate(random(-cellW/3, cellW/3), random(-cellH/3, cellH/3));

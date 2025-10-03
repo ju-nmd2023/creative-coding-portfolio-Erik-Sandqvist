@@ -1,3 +1,5 @@
+//This artwork is inspired by Georg Nees simular work
+
 let params = {
   w: 600,
   h: 600,

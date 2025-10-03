@@ -1,5 +1,6 @@
 // Daniel Shiffman, The Nature of Code (Chapter 6: Autonomous Agents)
 // The Coding Train: https://thecodingtrain.com/challenges/24-perlin-noise-flow-field
+// I modifed the code to learn and make it my own
 
 let inc = 0.1;
 let scl = 20;
